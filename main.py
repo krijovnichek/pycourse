@@ -5,6 +5,7 @@ from PIL.ExifTags import TAGS
 
 os.system('cls') # Clear Terminal
 
+dirPath = os.path.dirname(__file__)
 
 
 
