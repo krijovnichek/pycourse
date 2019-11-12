@@ -9,13 +9,13 @@ dirPath = os.path.dirname(__file__)
 
 
 
-path = r"D:\Projects\Ruslan\dev\testPath\pycourse" # Test files folder
+path = r"D:\Projects\Ruslan\dev\pycourse\testPath" # Test files folder
 filename = "file1.jpg"
 tfile = os.path.join(path, filename)
 
 
 print (list(TAGS.values()))   
-
+print ("hello")
 
 
 ##  Walk through path
