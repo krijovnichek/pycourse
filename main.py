@@ -1,4 +1,5 @@
 import os
+import enzyme
 from PIL import Image
 from PIL.ExifTags import TAGS
 
@@ -6,19 +7,21 @@ from PIL.ExifTags import TAGS
 os.system('cls') # Clear Terminal
 
 dirPath = os.path.dirname(__file__)
+path = os.path.join(dirPath, "testPath")
+filename = "file.mkv"
 
-
-
-path = r"D:\Projects\Ruslan\dev\pycourse\testPath" # Test files folder
-filename = "file1.jpg"
 tfile = os.path.join(path, filename)
+print (tfile)
+# print (tfile)
 
+with open(tfile, 'rb') as f:
+    info = enzyme.MKV(f)
 
-print (list(TAGS.values()))   
-print ("hello")
+print (info)
 
+# print (list(TAGS.values()))   
 
-##  Walk through path
+# #  Walk through path
 # for root, dirs, files in os.walk(path):
 #     print(root)
 #     for _dir in dirs:
