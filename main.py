@@ -1,32 +1,15 @@
 import os
 import enzyme
-from PIL import Image
-from PIL.ExifTags import TAGS
-
-
+from pymediainfo import MediaInfo
 os.system('cls') # Clear Terminal
 
 dirPath = os.path.dirname(__file__)
 path = os.path.join(dirPath, "testPath")
 filename = "file.mkv"
-
 tfile = os.path.join(path, filename)
-print (tfile)
-# print (tfile)
+print ("Path: "+tfile)
 
-with open(tfile, 'rb') as f:
-    info = enzyme.MKV(f)
-
-print (info)
-
-# print (list(TAGS.values()))   
-
-# #  Walk through path
-# for root, dirs, files in os.walk(path):
-#     print(root)
-#     for _dir in dirs:
-#         print(_dir)
- 
-#     for _file in files:
-#         print(_file)
-        
+mediaInfo = MediaInfo.parse(tfile)
+for track in mediaInfo.tracks:
+    if track.track_type == 'Video':
+        print (track.frame_rate, int(track.duration)/1000) 
